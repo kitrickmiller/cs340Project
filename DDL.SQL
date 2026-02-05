@@ -152,38 +152,38 @@ VALUES ('Goblin', 30, 1, 'Monster Manual', 166, 200),
 INSERT INTO Quests
 (questName, questDescription, questLevel, areaID)
 VALUES ('Rescue Gnomes in Silverwood Forest', 'https://docs.google.com/document/d/1a2b3c4d5e6f7g8h9i0j', 3,
- (SELECT areaID FROM Areas WHERE areaName = 'Silverwood Forest')),
+    (SELECT areaID FROM Areas WHERE areaName = 'Silverwood Forest')),
 ('Defend Ironhold City from Orc Attack', 'https://docs.google.com/document/d/2b3c4d5e6f7g8h9i0j1a', 5,
- (SELECT areaID FROM Areas WHERE areaName = 'Ironhold City')),
+    (SELECT areaID FROM Areas WHERE areaName = 'Ironhold City')),
 ('Explore the Depths of Storm Coast', 'https://docs.google.com/document/d/3c4d5e6f7g8h9i0j1a2b', 4,
- (SELECT areaID FROM Areas WHERE areaName = 'Storm Coast'));
+    (SELECT areaID FROM Areas WHERE areaName = 'Storm Coast'));
 
 -- Insert Character_Items
 INSERT INTO Character_Items (characterID, itemID, quantity, isEquipped)
 VALUES ((SELECT characterID FROM Characters WHERE characterName = 'Arin'),
- (SELECT itemID FROM Items WHERE itemName = 'Longsword'), 1, TRUE),
+    (SELECT itemID FROM Items WHERE itemName = 'Longsword'), 1, TRUE),
 ((SELECT characterID FROM Characters WHERE characterName = 'Borin'),
- (SELECT itemID FROM Items WHERE itemName = 'Health Potion'), 2, FALSE),
+    (SELECT itemID FROM Items WHERE itemName = 'Health Potion'), 2, FALSE),
 ((SELECT characterID FROM Characters WHERE characterName = 'Celeste'),
- (SELECT itemID FROM Items WHERE itemName = 'Magic Ring'), 1, TRUE);
+    (SELECT itemID FROM Items WHERE itemName = 'Magic Ring'), 1, TRUE);
 
  -- Insert Character_Quests
 INSERT INTO Character_Quests (characterID, questID)
 VALUES ((SELECT characterID FROM Characters WHERE characterName = 'Arin'),
- (SELECT questID FROM Quests WHERE questName = 'Rescue Gnomes in Silverwood Forest')),
+    (SELECT questID FROM Quests WHERE questName = 'Rescue Gnomes in Silverwood Forest')),
 ((SELECT characterID FROM Characters WHERE characterName = 'Borin'),
- (SELECT questID FROM Quests WHERE questName = 'Defend Ironhold City from Orc Attack')),
+    (SELECT questID FROM Quests WHERE questName = 'Defend Ironhold City from Orc Attack')),
 ((SELECT characterID FROM Characters WHERE characterName = 'Celeste'),
- (SELECT questID FROM Quests WHERE questName = 'Explore the Depths of Storm Coast'));
+    (SELECT questID FROM Quests WHERE questName = 'Explore the Depths of Storm Coast'));
 
 -- Insert Monster_Areas
 INSERT INTO Monster_Areas (monsterID, areaID, quantity)
 VALUES ((SELECT monsterID FROM Monsters WHERE monsterName = 'Goblin'),
- (SELECT areaID FROM Areas WHERE areaName = 'Silverwood Forest'), 10),
+    (SELECT areaID FROM Areas WHERE areaName = 'Silverwood Forest'), 10),
 ((SELECT monsterID FROM Monsters WHERE monsterName = 'Orc'),
- (SELECT areaID FROM Areas WHERE areaName = 'Ironhold City'), 7),
+    (SELECT areaID FROM Areas WHERE areaName = 'Ironhold City'), 7),
 ((SELECT monsterID FROM Monsters WHERE monsterName = 'Dragon Wyrmling'),
- (SELECT areaID FROM Areas WHERE areaName = 'Storm Coast'), 3);
+    (SELECT areaID FROM Areas WHERE areaName = 'Storm Coast'), 3);
 
 
 -- END OF DDL FILE --
