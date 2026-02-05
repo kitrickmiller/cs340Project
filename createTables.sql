@@ -37,7 +37,6 @@ CREATE TABLE Quests (
     questLevel INT,
     areaID INT,
     FOREIGN KEY (areaID) REFERENCES Areas(areaID)
-        ON DELETE SET NULL
 );
 
 -- Monsters
@@ -58,10 +57,8 @@ CREATE TABLE Character_Items (
     quantity INT DEFAULT 1,
     isEquipped BOOLEAN DEFAULT FALSE,
     PRIMARY KEY (characterID, itemID),
-    FOREIGN KEY (characterID) REFERENCES Characters(characterID)
-        ON DELETE CASCADE,
+    FOREIGN KEY (characterID) REFERENCES Characters(characterID),
     FOREIGN KEY (itemID) REFERENCES Items(itemID)
-        ON DELETE CASCADE
 );
 
 -- Character_Quests (Intersection)
@@ -70,10 +67,8 @@ CREATE TABLE Character_Quests (
     questID INT,
     status VARCHAR(50),
     PRIMARY KEY (characterID, questID),
-    FOREIGN KEY (characterID) REFERENCES Characters(characterID)
-        ON DELETE CASCADE,
+    FOREIGN KEY (characterID) REFERENCES Characters(characterID),
     FOREIGN KEY (questID) REFERENCES Quests(questID)
-        ON DELETE CASCADE
 );
 \
 -- Monster Areas (Intersection)
@@ -82,8 +77,6 @@ CREATE TABLE Monster_Areas (
     areaID INT,
     quantity INT DEFAULT 1,
     PRIMARY KEY (monsterID, areaID),
-    FOREIGN KEY (monsterID) REFERENCES Monsters(monsterID)
-        ON DELETE CASCADE,
+    FOREIGN KEY (monsterID) REFERENCES Monsters(monsterID),
     FOREIGN KEY (areaID) REFERENCES Areas(areaID)
-        ON DELETE CASCADE
 );
