@@ -6,6 +6,20 @@
 -- and the necessary intersection tables to manage many-to-many relationships.
 -- It also will provide the SQL statements that insert sample data into these tables.
 
+SET FOREIGN_KEY_CHECKS = 0;
+SET AUTOCOMMIT = 0;
+START TRANSACTION;
+
+-- DROP TABLES IF THEY EXIST TO AVOID CONFLICTS
+DROP TABLE IF EXISTS Monster_Areas;
+DROP TABLE IF EXISTS Character_Quests;
+DROP TABLE IF EXISTS Character_Items;
+DROP TABLE IF EXISTS Monsters;
+DROP TABLE IF EXISTS Quests;
+DROP TABLE IF EXISTS Areas;
+DROP TABLE IF EXISTS Items;
+DROP TABLE IF EXISTS Characters;
+
 -- TABLE SECTION --
 
 -- Characters
@@ -166,3 +180,7 @@ VALUES ((SELECT monsterID FROM Monsters WHERE monsterName = 'Goblin'),
 
 
 -- END OF DDL FILE --
+
+COMMIT;
+SET AUTOCOMMIT = 1;
+SET FOREIGN_KEY_CHECKS = 1;
